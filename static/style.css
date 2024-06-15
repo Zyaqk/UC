@@ -1,0 +1,605 @@
+@font-face {
+    font-family: Minecraft;
+    src: url(fonts/minecraft.ttf) format('truetype');
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Minecraft;
+    overflow-x: hidden;
+    user-select: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1300px;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.mainHeader {
+    width: 100%;
+    height: 100vh;
+    background-image: url(image/body.png);
+    background-size: cover;
+    background-position: center;
+    box-shadow: inset 0 0 0 10000px rgba(0, 0, 0, 0.4);
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.listMenu {
+    width: 100%;
+    height: 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.listMenu ul li {
+    list-style: none;
+    display: inline;
+    margin-right: 50px;
+    font-size: 18px;
+}
+
+.listMenu ul li a {
+    color: white;
+    transition: 0.2s ease-in-out;
+}
+
+.listMenu ul li a:hover {
+    color: red;
+    transition: 0.2s ease-in-out;
+}
+
+#onlineMedia {
+    display: none;
+}
+
+#online, #onlineMedia {
+    padding: 20px 15px;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#online, #onlineMedia div {
+    color: white;
+    font-size: 16px;
+}
+
+.titleHeader {
+    width: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.titleHeader h1 {
+    color: white;
+    font-size: 55px;
+}
+
+.titleHeader p {
+    color: white;
+    margin: 5px;
+    font-size: 17px;
+}
+
+.titleHeader button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: red;
+    transition: 0.2s ease-in-out;
+}
+
+.titleHeader button:hover {
+    background-color: rgb(182, 0, 0);
+    transition: 0.2s ease-in-out;
+}
+
+.listHeader {
+    width: 100%;
+    padding-bottom: 70px;
+    background-color: rgb(228, 228, 228);
+}
+
+.listDonate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.listDonate h2 {
+    font-size: 25px;
+}
+
+.buttonDonate button, .buttonMedia button {
+    padding: 15px 30px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: red;
+    margin-left: 20px;
+    transition: 0.2s ease-in-out;
+}
+
+.buttonDonate button:hover, .buttonMedia button:hover {
+    background-color: rgb(182, 0, 0);
+    transition: 0.2s ease-in-out;
+}
+
+#list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));
+    grid-gap: 15px;
+}
+
+.item {
+    cursor: pointer;
+    width: 100%;
+    height: 220px;
+    background-color: white;
+    position: relative;
+    z-index: 0;
+    transition: 0.6s ease-in-out;
+}
+
+.item:hover img {
+    width: 155px;
+    transition: 0.6s ease-in-out;
+}
+
+.item img {
+    width: 130px;
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    transition: 0.6s ease-in-out;
+    background-color: transparent;
+}
+
+.descriptionItem p {
+    padding: 10px;
+    position: absolute;
+}
+
+.purchaseButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    padding-top: 185px;
+    z-index: 0;
+}
+
+.purchaseButton button {
+    padding: 8px 15px;
+    font-size: 13px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: red;
+    transition: 0.2s ease-in-out;
+}
+
+.purchaseButton button:hover {
+    background-color: rgb(182, 0, 0);
+    transition: 0.2s ease-in-out;
+}
+
+.listNetwork {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(19%, 1fr));
+    grid-gap: 15px;
+    padding-top: 80px;
+}
+
+.listNetwork div {
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    height: 125px;
+    border-radius: 1px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.listNetwork div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(image/network.jpg);
+    background-size: cover;
+    background-position: center;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+.listNetwork div:hover::before {
+    transform: scale(1.3);
+}
+
+.listNetwork div:hover {
+    background-size: 130%;
+}
+
+.listNetwork div i {
+    color: white;
+    font-size: 50px;
+    z-index: 1;
+}
+
+.listNetwork div span {
+    color: white;
+    font-weight: bold;
+    padding-left: 20px;
+    z-index: 1;
+}
+
+footer {
+    padding: 50px 0;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leftFooter a {
+    color: red;
+}
+
+.rightFooter {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.rightFooter p {
+    color: rgb(120, 120, 120);
+}
+
+footer .container img {
+    width: 270px;
+    position: absolute;
+    margin-right: 380px;
+}
+
+.modalCupon {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 260px;
+    background-color: white;
+    border-radius: 7px;
+    z-index: 1000;
+    box-shadow: 0 0 0 10000px rgba(0, 0, 0, 0.6);
+    animation-duration: 0.5s;
+}
+
+.fadeInOut {
+    animation-name: fadeInOut;
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+}
+
+@keyframes fadeInOut {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+
+.modalNickname .closeModal, .modalCupon .closeModalCupon {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    cursor: pointer;
+    color: black;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 25px;
+    transition: 0.3s ease-in-out;
+}
+
+.modalNickname .closeModal:hover, .modalCupon .closeModalCupon:hover {
+    color: red;
+    transition: 0.3s ease-in-out;
+}
+
+.modalNickname h2, .modalCupon h2 {
+    display: flex;
+    justify-content: center;
+    padding: 16px 0;
+}
+
+.modalContent, .modalCuponContent {
+    display: flex;
+    flex-direction: column;
+    padding: 0 35px;
+    padding-top: 30px;
+}
+
+.modalContent input, .modalCuponContent input {
+    border: 1px solid rgb(102, 102, 102);
+    outline: none;
+    background: none;
+    padding: 20px 20px;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.addButton {
+    padding: 15px 30px;
+    font-size: 13px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: red;
+    transition: 0.2s ease-in-out;
+    position: absolute;
+    right: 35px;
+    margin-top: 10px;
+}
+
+.addButton:hover {
+    background-color: rgb(182, 0, 0);
+    transition: 0.2s ease-in-out;
+}
+
+.mediaMenu button {
+    display: none;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    color: white;
+}
+
+.mediaMainMenu {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    position: fixed;
+    z-index: 1000;
+}
+
+.mediaNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+}
+
+.mediaListMenu {
+    margin-left: 25px;
+}
+
+.mediaListMenu ul li {
+    padding: 30px 0;
+}
+
+.mediaListMenu ul a {
+    color: black;
+    padding: 10px 20px;
+}
+
+.mediaListMenu ul a:hover {
+    color: red;
+}
+
+.buttonDonateMedia {
+    margin-top: 100px;
+}
+
+.active {
+    color: red;
+}
+
+#closeMediaMenu {
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 30px;
+    transition: 0.2s ease-in-out;
+}
+
+#closeMediaMenu:hover {
+    color: red;
+    transition: 0.2s ease-in-out;
+}
+
+#lastpayments {
+    margin-top: 50px;
+    overflow-x: hidden;
+}
+
+#lastpayments h2 {
+    margin-bottom: 20px;
+}
+
+#listpayment-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+#listpayment {
+    display: inline-flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: #AA0000 transparent;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+
+#listpayment::-webkit-scrollbar {
+    width: 8px;
+}
+
+#listpayment::-webkit-scrollbar-thumb {
+    background-color: #AA0000;
+    border-radius: 10px;
+}
+
+.itemlastpay {
+    background-color: white;
+    display: flex;
+    justify-content: flex-start;
+    flex: 0 0 auto;
+    width: 310px;
+    height: auto;
+    padding: 20px 10px;
+    align-items: center;
+    border-radius: 2px;
+    scroll-snap-align: start;
+    margin-left: 10px;
+}
+
+.itemlastpay:first-child {
+    margin-right: 0;
+}
+
+.itemlastpay:last-child {
+    margin-left: 0;
+}
+
+.itemlastpay img {
+    width: 60px;
+    height: 60px;
+}
+
+.imgproduct {
+    width: 40px !important;
+    height: 40px !important;
+    margin-top: 40px;
+    margin-left: 12px;
+}
+
+.payinfo {
+    padding-left: 10px;
+}
+
+.payinfo li {
+    list-style: none;
+    font-size: 10px;
+    padding: 4px 0;
+}
+
+.lastnickname {
+    font-size: 16px !important;
+}
+
+.lastproduct {
+    font-size: 13px !important;
+    font-weight: bold;
+}
+
+.lasttime {
+    font-size: 12.4px !important;
+    font-style: italic;
+    color: #AAAAAA;
+}
+
+#notification {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 30px 0;
+    position: fixed;
+    bottom: 0px;
+    z-index: 10;
+}
+
+#notification .container {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    align-items: center;
+}
+
+#notification .container button {
+    padding: 10px 13px;
+    border: none;
+    outline: none;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    font-size: 17px;
+}
+
+#notification .container button:hover {
+    background-color: rgb(182, 0, 0);
+    transition: 0.2s ease-in-out;
+}
+
+#notification button {
+    border: none;
+    background: none;
+    outline: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    top: 15px;
+    right: 15px
+}

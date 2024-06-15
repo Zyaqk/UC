@@ -1,0 +1,175 @@
+@media (max-width: 1400px) {
+    .container {
+        max-width: 1000px;
+    }
+
+    .listNetwork div span {
+        font-size: 13px;
+    }
+
+    .purchaseButton {
+        font-size: 13px;
+    }
+
+    footer .container {
+        font-size: 14px;
+    }
+
+    footer .container img {
+        position: block !important;
+        margin-right: 0 !important;
+        margin-top: 40px;
+    }
+
+    footer {
+        padding: 50px 0 70px 0;
+    }
+    
+}
+
+@media (max-width: 1050px) {
+    .container {
+        max-width: 800px;
+    }
+
+    .listNetwork {
+        grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+    }
+
+    #list {
+        grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+    }
+
+    .listMenu ul {
+        display: none;
+    }
+
+    .mediaMenu button {
+        display: block;
+        flex-direction: row-reverse;
+    }
+
+    footer .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .rightFooter {
+        padding-top: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .listMenu {
+        flex-direction: row-reverse;
+    }
+
+    #online {
+        display: none;
+    }
+
+    #onlineMedia {
+        display: block;
+    }
+
+    .buttonDonate {
+        display: none;
+    }
+
+    footer {
+        padding: 50px 0 80px 0;
+    }
+}
+
+@media (max-width: 850px) {
+    .container {
+        max-width: 700px;
+    }
+
+    .modalNickname, .modalCupon {
+        width: 70%;
+    }
+}
+
+@media (max-width: 740px) {
+    .container {
+        max-width: 600px;
+    }
+
+    .listDonate {
+        height: 100px;
+    }
+
+    #addCupon {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .container {
+        max-width: 520px;
+    }
+
+    .listNetwork {
+        grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+    }
+
+    #list {
+        grid-template-columns: repeat(auto-fit, minmax(35%, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        max-width: 470px;
+    }
+
+    .listNetwork {
+        grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+    }
+
+    #list {
+        grid-template-columns: repeat(auto-fit, minmax(35%, 1fr));
+    }
+
+    .modalNickname h2, .modalCupon h2 {
+        font-size: 17px;
+    }
+
+    .titleHeader p {
+        font-size: 13px;
+        width: 80%;
+    }
+
+    #online {
+        display: none;
+    }
+
+    .buttonDonate button {
+        padding: 10px 14px;
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+        max-width: 420px;
+    }
+
+    .titleHeader p {
+        width: 65%;
+    }
+
+    footer .container {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 440px) {
+    #addNickname {
+        display: none;
+    }
+
+    .container {
+        max-width: 380px;
+    }
+}
