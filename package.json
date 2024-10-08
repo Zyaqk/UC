@@ -12,6 +12,7 @@
     "node": "14.17.0"
   },
   "scripts": {
-    "start": "nodemon server.mjs"
+    "start": "nodemon server.mjs",
+    "test": "node"
   }
 }
