@@ -1,31 +1,72 @@
 document.addEventListener("DOMContentLoaded", () => {
     fetch('/api/shop/products')
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                const products = data.response;
-                const productList = document.getElementById("list");
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            const products = data.response;
+            const categoryOrder = [ // Определение порядка и наименования категорий
+                { id: 80286, name: "Лорд" },
+                { id: 80287, name: "Король" },
+                { id: 80288, name: "Император" },
+                { id: 80289, name: "Фрилы" },
+                { id: 80290, name: "Разное (Подписки)" }
+            ];
+            const categories = {};
+            products.forEach(product => {
+                const categoryId = product.category_id;
+                if (!categories[categoryId]) {
+                    categories[categoryId] = {
+                        name: product.name.split(" ")[0],
+                        products: []
+                    };
+                }
+                categories[categoryId].products.push(product);
+            });
+            const categoryContainer = document.getElementById("productCategories");
+            categoryContainer.innerHTML = '';
 
-                products.forEach(product => {
-                    const itemHTML = `
-                        <div class="item">
-                            <img src="${product.image}" alt="${product.name}">
-                            <div class="descriptionItem">
-                                <p>${product.name}</p>
-                                <div class="purchaseButton">
-                                    <span>${product.price} руб.</span>
-                                    <button onclick="handleButtonClick(${product.id})">КУПИТЬ</button>
-                                </div>
-                            </div>
+            categoryOrder.forEach((category, index) => {
+                const categoryId = category.id;
+                const categoryData = categories[categoryId];
+
+                if (categoryData) { // Создание категории с кнопкой купона
+                    const categoryIdHTML = `list${index + 1 === 1 ? 'i' : (index + 1 === 2 ? 'ii' : 'iii')}`;
+                    const categoryHTML = `
+                        <div class="listDonate">
+                            <h2>${category.name}</h2>
+                            ${category.name === "Лорд" ? `
+                            <div class="buttonDonate">
+                                <button onclick="openModalCoupon()">ДОБАВИТЬ КУПОН</button>
+                            </div>` : ''}
+                        </div>
+                        <div id="${categoryIdHTML}">
+                            <div class="productList" id="list${index + 1}"></div>
                         </div>
                     `;
-                    productList.insertAdjacentHTML('beforeend', itemHTML);
-                });
-            } else {
-                console.error(data);
-            }
-        })
 
+                    categoryContainer.insertAdjacentHTML('beforeend', categoryHTML);
+                    const productList = document.getElementById(`list${index + 1}`); // Добавление продуктов в соответствующий блок
+                    categoryData.products.forEach(product => {
+                        const itemHTML = `
+                            <div class="item">
+                                <img src="${product.image}" alt="${product.name}">
+                                <div class="descriptionItem">
+                                    <p>${product.name}</p>
+                                    <div class="purchaseButton">
+                                        <span>${product.price} руб.</span>
+                                        <button onclick="handleButtonClick(${product.id})">КУПИТЬ</button>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        productList.insertAdjacentHTML('beforeend', itemHTML);
+                    });
+                }
+            });
+        } else {
+            console.error(data);
+        }
+    });
 
     fetch('/api/shop/payments')
         .then(response => response.json())
@@ -184,15 +225,13 @@ function addCupon() {
 }
 
 function updateOnlinePlayers() {
-    fetch('https://api.trademc.org/shop.getOnline?shop=221463&v=3')
+    fetch('https://api.trademc.org/shop.getOnline?shop=211386&v=3')
         .then(response => response.json())
         .then(data => {
-            document.getElementById('online').textContent = `Онлайн ${data.response.players} из ${data.response.max_players}`
+            document.getElementById('onlinePlayerServer').textContent = `Онлайн ${data.response.players} из ${data.response.max_players}`
         })
 }
-
-updateOnlinePlayers();
-setInterval(updateOnlinePlayers, 10000);
+setTimeout(updateOnlinePlayers, 1000);
 
 function smoothScrollTo(target) {
     var targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
@@ -221,19 +260,19 @@ function easeInOutQuad(t, b, c, d) {
 }
 
 function copyIp() {
-    var ipText = "unixcloud.org";
+    var ipText = "mithril.ru-mc.ru";
 
     navigator.clipboard.writeText(ipText).then(function() {
         document.getElementById('buttonCopy').innerHTML = 'СКОПИРОВАНО!'
 
         setTimeout(function() {
-            document.getElementById('buttonCopy').innerText = 'UNIXCLOUD.ORG';
+            document.getElementById('buttonCopy').innerText = 'MITHRIL.RU-MC.RU';
         }, 2000)
     })
 }
 
 function onlinePlayerServer() {
-    fetch('https://api.trademc.org/shop.getOnline?shop=221463&v=3')
+    fetch('https://api.trademc.org/shop.getOnline?shop=211329&v=3')
         .then(response => response.json())
         .then(data => {
             document.getElementById('onlinePlayerServer').textContent = `Онлайн ${data.response.players} из ${data.response.max_players}`

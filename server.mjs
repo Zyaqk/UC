@@ -71,6 +71,7 @@ app.get('/api/shop/products', async (req, res) => {
             headers: { 'Shop-Key': shopKey }
         });
         res.json(data);
+        console.log(data);
     } catch (error) {
         res.status(500).json({ error: 'Failed to fetch data' });
     }

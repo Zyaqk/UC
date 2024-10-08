@@ -64,7 +64,7 @@ a {
 }
 
 .listMenu ul li a:hover {
-    color: red;
+    color: #10ab7c;
     transition: 0.2s ease-in-out;
 }
 
@@ -113,12 +113,12 @@ a {
     border: none;
     outline: none;
     color: white;
-    background-color: red;
+    background-color: #10ab7c;
     transition: 0.2s ease-in-out;
 }
 
 .titleHeader button:hover {
-    background-color: rgb(182, 0, 0);
+    background-color: #10ab7d9d;
     transition: 0.2s ease-in-out;
 }
 
@@ -135,8 +135,15 @@ a {
     height: 80px;
 }
 
+.productList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-gap: 15px;
+}
+
 .listDonate h2 {
-    font-size: 25px;
+    font-size: 23px;
+    margin-top: 25px;
 }
 
 .buttonDonate button, .buttonMedia button {
@@ -145,20 +152,14 @@ a {
     border: none;
     outline: none;
     color: white;
-    background-color: red;
+    background-color: #10ab7c;
     margin-left: 20px;
     transition: 0.2s ease-in-out;
 }
 
 .buttonDonate button:hover, .buttonMedia button:hover {
-    background-color: rgb(182, 0, 0);
+    background-color: #10ab7d9d;
     transition: 0.2s ease-in-out;
-}
-
-#list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));
-    grid-gap: 15px;
 }
 
 .item {
@@ -208,12 +209,12 @@ a {
     border: none;
     outline: none;
     color: white;
-    background-color: red;
+    background-color: #10ab7c;
     transition: 0.2s ease-in-out;
 }
 
 .purchaseButton button:hover {
-    background-color: rgb(182, 0, 0);
+    background-color: #10ab7d9d;
     transition: 0.2s ease-in-out;
 }
 
@@ -283,7 +284,7 @@ footer .container {
 }
 
 .leftFooter a {
-    color: red;
+    color: #10ab7c;
 }
 
 .rightFooter {
@@ -358,7 +359,7 @@ footer .container img {
 }
 
 .modalNickname .closeModal:hover, .modalCupon .closeModalCupon:hover {
-    color: red;
+    color: #10ab7c;
     transition: 0.3s ease-in-out;
 }
 
@@ -391,7 +392,7 @@ footer .container img {
     border: none;
     outline: none;
     color: white;
-    background-color: red;
+    background-color: #10ab7c;
     transition: 0.2s ease-in-out;
     position: absolute;
     right: 35px;
@@ -399,7 +400,7 @@ footer .container img {
 }
 
 .addButton:hover {
-    background-color: rgb(182, 0, 0);
+    background-color: #10ab7d9d;
     transition: 0.2s ease-in-out;
 }
 
@@ -442,7 +443,7 @@ footer .container img {
 }
 
 .mediaListMenu ul a:hover {
-    color: red;
+    color: #10ab7c;
 }
 
 .buttonDonateMedia {
@@ -450,7 +451,7 @@ footer .container img {
 }
 
 .active {
-    color: red;
+    color: #10ab7c;
 }
 
 #closeMediaMenu {
@@ -462,12 +463,12 @@ footer .container img {
 }
 
 #closeMediaMenu:hover {
-    color: red;
+    color: #10ab7c;
     transition: 0.2s ease-in-out;
 }
 
 #lastpayments {
-    margin-top: 50px;
+    margin-top: 100px;
     overflow-x: hidden;
 }
 
@@ -487,7 +488,7 @@ footer .container img {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: thin;
-    scrollbar-color: #AA0000 transparent;
+    scrollbar-color: #10ab7d9d transparent;
     flex-direction: row-reverse;
     justify-content: flex-end;
 }
@@ -498,7 +499,7 @@ footer .container img {
 }
 
 #listpayment::-webkit-scrollbar-thumb {
-    background-color: #AA0000;
+    background-color: #10ab7d9d;
     border-radius: 10px;
 }
 
@@ -581,7 +582,7 @@ footer .container img {
     padding: 10px 13px;
     border: none;
     outline: none;
-    background-color: red;
+    background-color: #10ab7c;
     color: white;
     cursor: pointer;
     transition: 0.2s ease-in-out;
@@ -589,7 +590,7 @@ footer .container img {
 }
 
 #notification .container button:hover {
-    background-color: rgb(182, 0, 0);
+    background-color: #10ab7d9d;
     transition: 0.2s ease-in-out;
 }
 
